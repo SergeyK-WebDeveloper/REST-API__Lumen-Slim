@@ -1,0 +1,29 @@
+{
+  'type': 'menu',
+  'currency': '$',
+  'menu': [
+    '{{repeat(7)}}',
+    {
+      _id: '{{objectId()}}',
+      index: '{{index()}}',
+      about: '{{lorem(1, "paragraphs")}}',
+      category: function () {
+        var categories = ['Drinks', 'Breakfast', 'Lunch', 'Dinner', 'Specials', 'Deserts', 'Other'];
+        return categories[this.index];
+      },
+      products: [
+        '{{repeat(10, 25)}}',
+        {
+          id: '{{index()}}',
+          name: '{{company()}}',
+          price: '{{floating(1, 40, 2, "0,0.00")}}',
+          tax: '{{floating(0, 3, 2, "0,0.00")}}',
+          quantity: '{{integer(10, 25)}}'
+        }
+      ]
+    }
+  ]
+}
+
+
+http://www.json-generator.com/
